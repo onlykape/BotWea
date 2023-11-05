@@ -69,11 +69,32 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 function isApplicationRunning() {
-  // Gantilah logika berikut dengan logika yang sesuai
-  // untuk memeriksa apakah aplikasi berjalan dengan baik
-  // Misalnya, Anda dapat memeriksa koneksi ke WhatsApp atau kondisi lain.
-  // Jika aplikasi berjalan dengan baik, kembalikan true. Jika tidak, kembalikan false.
-  return true;
+  // Di sini Anda dapat menambahkan logika untuk memeriksa koneksi ke WhatsApp atau kondisi lain.
+  // Misalnya, Anda dapat mencoba membuat permintaan HTTP sederhana ke layanan WhatsApp atau
+  // memeriksa status koneksi ke WhatsApp.
+
+  // Misalnya, dengan menggunakan metode GET untuk memeriksa status koneksi ke WhatsApp:
+  // Anda perlu mengganti URL berikut dengan URL yang sesuai untuk memeriksa status WhatsApp.
+  const whatsappStatusURL = 'https://api.whatsapp.com/status';
+
+  // Anda bisa menggunakan modul axios atau node-fetch untuk melakukan permintaan HTTP.
+  // Di sini, saya akan menggunakan node-fetch untuk contoh ini.
+  const fetch = require('node-fetch');
+
+  return fetch(whatsappStatusURL)
+    .then(response => {
+      if (response.status === 200) {
+        // Koneksi ke WhatsApp berfungsi dengan baik.
+        return true;
+      } else {
+        // Koneksi ke WhatsApp bermasalah.
+        return false;
+      }
+    })
+    .catch(error => {
+      // Terjadi kesalahan saat mencoba terhubung ke WhatsApp.
+      return false;
+    });
 }
 
 // Route untuk mengembalikan status aplikasi
