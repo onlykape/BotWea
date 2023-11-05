@@ -76,7 +76,7 @@ function isApplicationRunning() {
 
 // Membuat server HTTP untuk memeriksa status aplikasi
 const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/status') {
+  if (req.method === 'GET' && req.url === '/') {
     const status = isApplicationRunning() ? 'Aplikasi berjalan' : 'Aplikasi tidak berjalan';
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(status);
