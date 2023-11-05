@@ -63,56 +63,25 @@ const store = makeInMemoryStore({
     stream: 'store'
   })
 });
+
 const express = require('express');
 const app = express();
-
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 function isApplicationRunning() {
-  // Di sini Anda dapat menambahkan logika untuk memeriksa koneksi ke WhatsApp atau kondisi lain.
-  // Misalnya, Anda dapat mencoba membuat permintaan HTTP sederhana ke layanan WhatsApp atau
-  // memeriksa status koneksi ke WhatsApp.
-
-  // Misalnya, dengan menggunakan metode GET untuk memeriksa status koneksi ke WhatsApp:
-  // Anda perlu mengganti URL berikut dengan URL yang sesuai untuk memeriksa status WhatsApp.
-  const whatsappStatusURL = 'https://api.whatsapp.com/status';
-
-  // Anda bisa menggunakan modul axios atau node-fetch untuk melakukan permintaan HTTP.
-  // Di sini, saya akan menggunakan node-fetch untuk contoh ini.
-  const fetch = require('node-fetch');
-
-  return fetch(whatsappStatusURL)
-    .then(response => {
-      if (response.status === 200) {
-        // Koneksi ke WhatsApp berfungsi dengan baik.
-        return true;
-      } else {
-        // Koneksi ke WhatsApp bermasalah.
-        return false;
-      }
-    })
-    .catch(error => {
-      // Terjadi kesalahan saat mencoba terhubung ke WhatsApp.
-      return false;
-    });
+  // You can perform checks here, e.g., check the connection to WhatsApp
+  // If everything is running correctly, return true; otherwise, return false.
+  return true; // Modify this based on your checks
 }
 
-// Route untuk mengembalikan status aplikasi
 app.get('/', (req, res) => {
   const status = isApplicationRunning() ? 'Aplikasi berjalan' : 'Aplikasi tidak berjalan';
   res.status(200).send(status);
 });
 
-// Middleware untuk menangani permintaan yang tidak cocok dengan rute apa pun
-app.use((req, res) => {
-  res.status(404).send('Not Found');
-});
-
-// Memulai server Express
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
 
 async function startServer() {
   try {
