@@ -36,10 +36,10 @@ module.exports = {
   prefix: '.',
   public_mode: true,
   chat_mode: 'both', // Private, Group, Both/All
-  offline_status: false,
-  auto_update_profile_status: false,
+  offline_status: true,
+  auto_update_profile_status: true,
   auto_read_messages: true,
-  auto_typing: true,
+  auto_typing: false,
   auto_recording: false,
   mongodb_uri: 'mongodb+srv://kpranata141:gBjFG0kR6lI7OasM@datauserwabot.bpwcilm.mongodb.net/?retryWrites=true&w=majority', // Register here: https://mongodb.com/#sign-up
   api: {
