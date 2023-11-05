@@ -68,6 +68,14 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+function isApplicationRunning() {
+  // Gantilah logika berikut dengan logika yang sesuai
+  // untuk memeriksa apakah aplikasi berjalan dengan baik
+  // Misalnya, Anda dapat memeriksa koneksi ke WhatsApp atau kondisi lain.
+  // Jika aplikasi berjalan dengan baik, kembalikan true. Jika tidak, kembalikan false.
+  return true;
+}
+
 // Route untuk mengembalikan status aplikasi
 app.get('/', (req, res) => {
   const status = isApplicationRunning() ? 'Aplikasi berjalan' : 'Aplikasi tidak berjalan';
