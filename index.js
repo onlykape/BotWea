@@ -63,33 +63,24 @@ const store = makeInMemoryStore({
     stream: 'store'
   })
 });
-const http = require('http');
+const express = require('express');
+const app = express();
 
-// Fungsi untuk memeriksa apakah aplikasi berjalan
-function isApplicationRunning() {
-  // Gantilah logika berikut dengan logika yang sesuai
-  // untuk memeriksa apakah aplikasi berjalan dengan baik
-  // Misalnya, Anda dapat memeriksa koneksi ke WhatsApp atau kondisi lain.
-  // Jika aplikasi berjalan dengan baik, kembalikan true. Jika tidak, kembalikan false.
-  return true;
-}
+const port = process.env.PORT || 5000;
 
-// Membuat server HTTP untuk memeriksa status aplikasi
-const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/') {
-    const status = isApplicationRunning() ? 'Aplikasi berjalan' : 'Aplikasi tidak berjalan';
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(status);
-  } else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Not Found');
-  }
+// Route untuk mengembalikan status aplikasi
+app.get('/', (req, res) => {
+  const status = isApplicationRunning() ? 'Aplikasi berjalan' : 'Aplikasi tidak berjalan';
+  res.status(200).send(status);
 });
 
-const port = 5000; // Sesuaikan dengan port yang Anda gunakan di Okteto
+// Middleware untuk menangani permintaan yang tidak cocok dengan rute apa pun
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
-// Memulai server HTTP
-server.listen(port, () => {
+// Memulai server Express
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
