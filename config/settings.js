@@ -58,7 +58,7 @@ module.exports = {
   },
   owner: {
     name: ["0xff_404"],
-    number: ["6282220727243"]
+    number: ["6289688329976"]
   },
   daily_limit: {
     free: 50,
