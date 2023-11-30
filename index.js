@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-J
+
 function start() {
    let args = [path.join(__dirname, 'alpha.js'), ...process.argv.slice(2)]
    console.log([process.argv[0], ...args].join('\n'))
