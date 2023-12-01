@@ -2,7 +2,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 
 // APIKEY OPEN AI
-global.jeropenai  = "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" // ISI APIKEY LU
+global.jeropenai  = "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" // ISI APIKEY LU
 
 // Api
 global.APIs = {
