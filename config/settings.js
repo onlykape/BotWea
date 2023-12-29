@@ -58,7 +58,7 @@ module.exports = {
   },
   owner: {
     name: ["0xff_404"],
-    number: ["6289688329976"]
+    number: ["6281233554132"]
   },
   daily_limit: {
     free: 50,
@@ -86,7 +86,7 @@ module.exports = {
   message: {
 
 
-    plans_and_pricing: '*VALORANT Triggerbot V.2*\n\n*Harian =* 20k*\nMingguan  =* 100k\n*Permanen =* 350k\n*Contact owner:* https://discord.com/invite/P4xccXeXGC',
+    plans_and_pricing: '*VALORANT Triggerbot Private Code \n*Contact owner:* https://discord.com/invite/P4xccXeXGC',
     not_registered: 'Anda belum terdaftar sebagai pengguna. Untuk mendaftar, ketik: *.register*.',
     especially_premium: 'Anda harus ganteng untuk mengakses fitur ini. Ketik: *.upgrade* untuk mengupgrade wajahmu.',
     especially_owners: 'Anda tidak diizinkan mengakses fitur ini. Fitur ini hanya bisa diakses oleh owner bot.',
